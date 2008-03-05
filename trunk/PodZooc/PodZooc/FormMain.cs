@@ -12,16 +12,20 @@ using System.IO;
 namespace PodZooc
 {
     /// <summary>
-    /// 0.2: 5 Mar 2008: fixed non-readable feed problem.
-    /// 0.1: initial verion
+    /// 0.2.1.0: 5 Mar 2008: changed old app name.
+    /// 0.2.0.0: 5 Mar 2008: fixed non-readable feed problem.
+    /// 0.1.0.0: initial verion
     /// </summary>
     public partial class FormMain : Form
     {
         private const string CONFIG_FILE = "PodZooc.config";
+        private const string APP_NAME = "PodZooc 0.2.1.0";
+        private const string AUTHOR_NAME = "mio (yeoupooh 앳 gmail 닷 com)";
 
         public FormMain()
         {
             InitializeComponent();
+            this.Text = APP_NAME;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -115,7 +119,7 @@ namespace PodZooc
         }
 
         #region Config
-        
+
         private void LoadConfig()
         {
             using (StreamReader sr = new StreamReader(CONFIG_FILE))
@@ -183,7 +187,7 @@ namespace PodZooc
 
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("KongPod 0.1 by mio (yeoupooh 앳 gmail 닷 com)", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Format("{0} by {1}", APP_NAME, AUTHOR_NAME), "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

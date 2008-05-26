@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.buttonExit = new System.Windows.Forms.Button();
             this.textBoxDebug = new System.Windows.Forms.TextBox();
@@ -42,6 +43,8 @@
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBarMain = new System.Windows.Forms.ToolStripProgressBar();
+            this.buttonReload = new System.Windows.Forms.Button();
+            this.timerStartUp = new System.Windows.Forms.Timer(this.components);
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
@@ -52,7 +55,7 @@
             // buttonExit
             // 
             this.buttonExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonExit.Location = new System.Drawing.Point(174, 211);
+            this.buttonExit.Location = new System.Drawing.Point(174, 230);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(100, 30);
             this.buttonExit.TabIndex = 18;
@@ -63,17 +66,17 @@
             // 
             // textBoxDebug
             // 
-            this.textBoxDebug.Location = new System.Drawing.Point(174, 247);
+            this.textBoxDebug.Location = new System.Drawing.Point(174, 266);
             this.textBoxDebug.Multiline = true;
             this.textBoxDebug.Name = "textBoxDebug";
-            this.textBoxDebug.Size = new System.Drawing.Size(100, 46);
+            this.textBoxDebug.Size = new System.Drawing.Size(100, 27);
             this.textBoxDebug.TabIndex = 17;
             this.textBoxDebug.Visible = false;
             // 
             // buttonAbout
             // 
             this.buttonAbout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonAbout.Location = new System.Drawing.Point(174, 163);
+            this.buttonAbout.Location = new System.Drawing.Point(174, 194);
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Size = new System.Drawing.Size(100, 30);
             this.buttonAbout.TabIndex = 16;
@@ -83,7 +86,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(174, 12);
+            this.buttonAdd.Location = new System.Drawing.Point(174, 48);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(100, 30);
             this.buttonAdd.TabIndex = 15;
@@ -135,7 +138,7 @@
             // 
             // buttonDownload
             // 
-            this.buttonDownload.Location = new System.Drawing.Point(174, 114);
+            this.buttonDownload.Location = new System.Drawing.Point(174, 150);
             this.buttonDownload.Name = "buttonDownload";
             this.buttonDownload.Size = new System.Drawing.Size(100, 30);
             this.buttonDownload.TabIndex = 13;
@@ -147,7 +150,7 @@
             // buttonPlay
             // 
             this.buttonPlay.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonPlay.Location = new System.Drawing.Point(174, 48);
+            this.buttonPlay.Location = new System.Drawing.Point(174, 84);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Size = new System.Drawing.Size(100, 60);
             this.buttonPlay.TabIndex = 12;
@@ -192,11 +195,26 @@
             this.toolStripProgressBarMain.RightToLeftLayout = true;
             this.toolStripProgressBarMain.Size = new System.Drawing.Size(100, 16);
             // 
+            // buttonReload
+            // 
+            this.buttonReload.Location = new System.Drawing.Point(174, 12);
+            this.buttonReload.Name = "buttonReload";
+            this.buttonReload.Size = new System.Drawing.Size(100, 30);
+            this.buttonReload.TabIndex = 21;
+            this.buttonReload.Text = "Reload";
+            this.buttonReload.UseVisualStyleBackColor = true;
+            this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
+            // 
+            // timerStartUp
+            // 
+            this.timerStartUp.Tick += new System.EventHandler(this.timerStartUp_Tick);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 328);
+            this.Controls.Add(this.buttonReload);
             this.Controls.Add(this.statusStripMain);
             this.Controls.Add(this.axWindowsMediaPlayerMain);
             this.Controls.Add(this.buttonExit);
@@ -206,6 +224,7 @@
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.buttonDownload);
             this.Controls.Add(this.buttonPlay);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "PodZooc 0.2";
             this.Load += new System.EventHandler(this.FormMain_Load);
@@ -235,6 +254,8 @@
         private System.Windows.Forms.StatusStrip statusStripMain;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelMessage;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBarMain;
+        private System.Windows.Forms.Button buttonReload;
+        private System.Windows.Forms.Timer timerStartUp;
     }
 }
 
